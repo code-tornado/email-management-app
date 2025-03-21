@@ -52,6 +52,7 @@ const ExportEmails = ({ getMailInfo }: { getMailInfo: () => void }) => {
 
   const handleExport = async () => {
     getEmails(countPerFile * fileCount).then((res) => {
+      getMailInfo();
       new Array(fileCount).fill(0).forEach((_, i) => {
         exportToExcel(
           res.data.emails.slice(
@@ -61,8 +62,6 @@ const ExportEmails = ({ getMailInfo }: { getMailInfo: () => void }) => {
         );
       });
     });
-
-    getMailInfo();
   };
   return (
     <div className="shadow rounded p-4">
