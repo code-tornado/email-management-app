@@ -10,4 +10,8 @@ function getEmails(count: number) {
   return api.get('/', { count });
 }
 
-export { addEmails, getEmails };
+function getInfo() {
+  return api.get('/info');
+}
+
+export { addEmails, getEmails, getInfo };
